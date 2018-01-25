@@ -1,0 +1,266 @@
+/**
+**reset
+*/
+html,body,div,span,a,img,input,button{
+margin:0;
+padding:0;
+list-style: none;
+}
+body,html{
+	background-color: #f2f3f4;
+	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53","Arial,sans-serif";
+    font-size:14px;
+}
+/**
+**框架
+*/
+.wrap{
+    max-width:750px;
+    width:100%;
+    background-color: #FFF;
+    margin:0 auto 50px;
+}
+/**
+**自定义轮播图的按钮
+*/
+.swiper-pagination-bullet-active{
+    height: 3px;
+    width:1.5rem;
+    border-radius: 0;
+    background-color:#fff;
+}
+.swiper-pagination-bullet{
+    height:3px;
+    width:1.5rem;
+    border-radius: 0;
+    background-color:#ccc;
+}
+/**
+**轮播图
+*/
+.slide-swipe {
+    width: 100%;
+    height:300px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+
+}
+@media screen and (min-width:750px) {
+    .slide-swipe {
+        width: 100%;
+        height:500px;
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+    
+    }
+}
+
+.slide {
+width:100%;
+
+}
+.slide a {
+    display: block;
+    width:100%;
+
+    
+}
+.mer-img{
+    width:100%;
+    height:300px;
+}
+@media screen and (min-width:750px) {
+    .mer-img{
+    width:100%;
+    height:500px;
+}
+}
+/*
+**底部导航
+*/
+.mer-footer{
+    width:100% !important;
+    height:50px;
+    border-top:1px solid #ececec;
+    position: fixed;
+    box-shadow:0 0 2px #ccc;
+    left: 50%;
+    bottom:0;
+    z-index: 99999;
+    background-color:#fff;
+    max-width: 750px;
+   transform: translate(-50%,0);
+  }
+  .mer-footer-div{
+  
+  display: inline-block;
+  height:50px;
+  position: absolute;
+  top:0;
+  text-align: center;
+  
+  }
+  .mer-footer-div a{
+      display: inline-block;
+  height:100%;
+  width:100%;
+  color:#000;
+  position: relative;
+  left: 0;
+  top:0;
+  text-align: center;
+  }
+  .mer-footer-div a img{
+      display: inline-block;
+  width:28px;
+  position: absolute;
+  left: 50%;
+  top:0;
+  margin-top:8px;
+  transform: translate(-50%,0);
+  }
+  .mer-footer-div a span{
+  display: inline-block;
+  font-size:0.8rem;
+  width:100%;
+  position: absolute;
+  left: 50%;
+  top:30px;
+  transform: translate(-50%,0);
+  }
+/**
+**分割
+*/
+.division{
+    margin:0;
+    padding:0;
+    height:10px;
+    width:100%;
+    background-color:#f2f3f4;
+}
+/**
+**竖线
+*/
+.vertical-line-wrap{
+    margin:1% 20px;
+    position: relative;
+    left:0;
+    top:0;
+    display: inline-block;
+}
+.vertical-line-title{
+    position: absolute;
+    left:50%;
+    top:50%;
+    z-index:50;
+     transform: translate(-50%,-50%);
+     background-color:#fff;
+}
+.vertical-line{
+    display: inline-block;
+    width: 1px;
+    z-index:2;
+    height:100%;
+    background-color:#ccc;
+}
+/**
+**底部距离
+*/
+.margin-bottom50{
+    margin-bottom:60px;
+}
+/**
+**一行多个商品
+*/
+.mer-wrap{
+    width:98%;
+    padding:0 1%;
+    .mer-item-wrap{
+        display: inline-block;
+        width:40%;
+        margin:1%;
+        font-size: 0.8rem;
+        .mer-item{
+            display: inline-block;
+            border:0px solid #ececec;
+            .mer-item-img{
+                width:100%;
+                
+            }
+            .mer-item-title{
+                padding:3%;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                display:-webkit-box; 
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:2; 
+            }
+            .mer-item-pricewrap{
+                display: inline-block;
+                margin-bottom:3%;
+                padding:3%;
+                font-weight:bolder;
+                .mer-item-oldprice{
+                    color:#ccc;
+                    text-decoration:line-through;
+                }
+                .mer-item-price{
+                    color:red;
+                }
+            }
+        }
+    }
+}
+/**
+**一行两个商品
+*/
+.mer2-wrap{
+    width:98%;
+    padding:0 1%;
+    .mer2-item-wrap{
+        display: inline-block;
+        width:48%;
+        margin:1%;
+        font-size: 1rem;
+        .mer2-item{
+            display: inline-block;
+            border:1px solid #ececec;
+            .mer2-item-img{
+            width:100%;
+
+            }
+            .mer2-item-title{
+                padding:3%;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                display:-webkit-box; 
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:2; 
+            }
+            .mer2-item-pricewrap{
+                padding:3%;
+                font-weight:bolder;
+                .mer2-item-oldprice{
+                    color:#ccc;
+                    text-decoration:line-through;
+                }
+                .mer2-item-price{
+                }
+            }
+            .mer2-item-tag-wrap{
+                padding:3%;
+                .mer2-item-tag{
+                    display: inline-block;
+                    margin:0.2rem;
+                    border:1px solid #f93939;
+                    box-sizing :border-box;
+                    color:#f93939;
+                    font-size: 0.7rem;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
