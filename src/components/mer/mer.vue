@@ -223,59 +223,7 @@ export default {
 .mer-content *{
   width:100% !important; 
 }
-/*
-**底部导航
-*/
-.mer-footer{
-  width:100% !important;
-  height:50px;
-  border-top:1px solid #ececec;
-  position: fixed;
-  left: 50%;
-  bottom:0;
-  z-index: 99999;
-  background-color:#fff;
-  max-width: 750px;
- transform: translate(-50%,0);
-}
-.mer-footer-div{
 
-display: inline-block;
-height:50px;
-position: absolute;
-top:0;
-text-align: center;
-
-}
-.mer-footer-div a{
-    display: inline-block;
-height:100%;
-width:100%;
-color:#000;
-position: relative;
-left: 0;
-top:0;
-text-align: center;
-border-right:1px solid #ececec;
-}
-.mer-footer-div a img{
-    display: inline-block;
-width:22px;
-position: absolute;
-left: 50%;
-top:0;
-margin-top:8px;
-transform: translate(-50%,0);
-}
-.mer-footer-div a span{
-display: inline-block;
-font-size:0.8rem;
-width:100%;
-position: absolute;
-left: 50%;
-top:30px;
-transform: translate(-50%,0);
-}
 
 
 </style>
