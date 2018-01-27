@@ -2,11 +2,11 @@
   <div class="wrap margin-bottom50">
     <div class="index-header">
         <span class="index-header-center">
-            <img src="@/common/img/logo.png" class="index-header-center-img" slot="icon">
+            <img src="../../common/img/logo.png" class="index-header-center-img" slot="icon">
           
         </span>
             <router-link :to="{path:'/index/home'}" class="index-header-search">
-                <img src="@/common/img/search_white.png" class="index-header-search-img">
+                <img src="../../common/img/search_white.png" class="index-header-search-img">
             </router-link>
                     
     </div>
@@ -33,7 +33,7 @@
  <!-- 通知-->
     <div class="notice">
         <span class="notice-left" >
-                <img  class="notice-left-img"   src="@/common/img/11e6188ae462e.jpg"/>
+                <img  class="notice-left-img"   src="../../common/img/11e6188ae462e.jpg"/>
         </span>
          <div class="swiper-container noticeswiper notice-right">
             <div class="swiper-wrapper ">
@@ -108,24 +108,24 @@
  <!-- 广告位-->
     <div>
         <div class="ad">
-         <a style="width:38%;display:inline-block;height:120px;" href="#">
+         <a class="ad-a-lg"  href="#">
              <img class="ad-img" v-bind:src="ad.arr[0].imgAddress" >
          </a>
-         <a style="width:30%;display:inline-block;height:120px;margin-left:-4px;" href="#">
+         <a class="ad-a-sm"  href="#">
              <img class="ad-img" v-bind:src="ad.arr[1].imgAddress" >
          </a>
-         <a style="width:30%;display:inline-block;height:120px;margin-left:-4px;" href="#">
+         <a class="ad-a-sm" href="#">
              <img class="ad-img" v-bind:src="ad.arr[2].imgAddress" >
          </a>
         </div>
         <div class="ad" style="margin-top:-6px;"> 
-         <a style="width:38%;display:inline-block;height:120px;" href="#">
+         <a class="ad-a-lg" href="#">
              <img class="ad-img" v-bind:src="ad.arr[3].imgAddress" >
          </a>
-         <a style="width:30%;display:inline-block;height:120px;margin-left:-4px;" href="#">
+         <a class="ad-a-sm"  href="#">
              <img class="ad-img" v-bind:src="ad.arr[4].imgAddress" >
          </a>
-         <a style="width:30%;display:inline-block;height:120px;margin-left:-4px;" href="#">
+         <a class="ad-a-sm"  href="#">
              <img class="ad-img" v-bind:src="ad.arr[5].imgAddress" >
          </a>
         </div>
@@ -334,23 +334,23 @@ export default {
         ],
         //四方阁
         boxList:[
-            {boxId:1,name:'会员专享',icon:'https://img.gegejia.com/c3aedbd5e5c3.png'},
-            {boxId:2,name:'每日十荐',icon:'https://img.gegejia.com/dc8baee79b2.png'},
-            {boxId:3,name:'环球工厂',icon:'https://img.gegejia.com/22f7b1dd1963b.png'},
-            {boxId:4,name:'分类',icon:'https://img.gegejia.com/28a6e2e55a185.png'},
+            {boxId:1,name:'会员专享',icon:require('../../common/img/c3aedbd5e5c3.png')},
+            {boxId:2,name:'每日十荐',icon:require('../../common/img/dc8baee79b2.png')},
+            {boxId:3,name:'环球工厂',icon:require('../../common/img/22f7b1dd1963b.png')},
+            {boxId:4,name:'分类',icon:require('../../common/img/28a6e2e55a185.png')},
             ],
         //广告
         ad:{
             single:{
-            adId:7,link:'https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0',imgAddress:'https://img.gegejia.com/1d48aae9fc53a.jpg'
+            adId:7,link:'https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0',imgAddress:require('../../common/img/1d48aae9fc53a.jpg')
             },
             arr:[
-                {adId:1,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/dcb7b0816d1.jpg'},
-                {adId:2,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/1d48adfaf4a68.jpg'},
-                {adId:3,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/11ea4bf471974.jpg'},
-                {adId:4,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/22f7ddde7de3d.jpg'},
-                {adId:5,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/68be57d9cad8.jpg'},
-                {adId:6,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:'https://img.gegejia.com/dcb7b84cc1d.jpg'},
+                {adId:1,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/dcb7b0816d1.jpg')},
+                {adId:2,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/1d48adfaf4a68.jpg')},
+                {adId:3,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/11ea4bf471974.jpg')},
+                {adId:4,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/22f7ddde7de3d.jpg')},
+                {adId:5,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/68be57d9cad8.jpg')},
+                {adId:6,link:"https://wx.51bushou.com/ygg-hqbs/cms/index.html?cId=2549&APPOS=1&caid=2112&gpm=0",imgAddress:require('../../common/img/dcb7b84cc1d.jpg')},
             ]
         },
         //超值热卖
