@@ -49,9 +49,11 @@
  <div>
         <div class="box" :key="box.boxId"  v-for="box in boxList">
             <div class="box-item">
-                <img class="box-item-img" :src="box.icon" alt="">
-                <span class="box-item-text" v-text="box.name">
-                </span>
+                <a :href="box.link">
+                    <img class="box-item-img" :src="box.icon" alt="">
+                    <span class="box-item-text" v-text="box.name">
+                    </span>
+                </a>
             </div>
         </div>
  </div>
@@ -68,7 +70,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide mer-item-wrap" v-if="index<5" v-for="(explosionMer,index) in explosionMerList" :key="explosionMer.explosionMerId" >
                     <div class="mer-item" >
-                        <img  class="mer-item-img" :src="explosionMer.imgAddress" alt="">
+                        <img  class="mer-item-img" v-lazy="explosionMer.imgAddress" alt="">
                         <span class="mer-item-title" v-text="explosionMer.title"></span>
                         <span class="mer-item-pricewrap">
                             <span class="mer-item-price">
@@ -154,10 +156,13 @@
  <!-- 猜你喜欢-->
      <div>
          <div class="hot-title" >猜你喜欢</div>
-         <div class="mer2-wrap">
+         <div class="mer2-wrap"
+            v-infinite-scroll="loadMore"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="2">
              <div class="mer2-item-wrap" v-for="likeMer in likeMerList">
                  <div class="mer2-item">
-                    <img  class="mer2-item-img" :src="likeMer.imgAddress" alt="">
+                    <img  class="mer2-item-img" v-lazy="likeMer.imgAddress" alt="">
                     <span class="mer2-item-title" v-text="likeMer.title"></span>
                     <span class="mer2-item-pricewrap">
                         <span class="mer2-item-price">
@@ -190,16 +195,16 @@ export default {
     return {
         //商品类型
         merCateList:[
-            {merCateId:1,name:'首页'},
-            {merCateId:2,name:'年货礼盒'},
-            {merCateId:3,name:'美妆护肤'},
-            {merCateId:4,name:'滋补保健'},
-            {merCateId:5,name:'母婴健康'},
-            {merCateId:6,name:'百货轻奢'},
-            {merCateId:7,name:'乳饮酒速食'},
-            {merCateId:8,name:'休闲零食'},
-            {merCateId:9,name:'水果生鲜'},
-            {merCateId:10,name:'环球物料'}
+            {merCateId:1,isfixed:1,name:'首页'},
+            {merCateId:2,isfixed:1,name:'年货礼盒'},
+            {merCateId:3,isfixed:0,name:'美妆护肤'},
+            {merCateId:4,isfixed:0,name:'滋补保健'},
+            {merCateId:5,isfixed:0,name:'母婴健康'},
+            {merCateId:6,isfixed:0,name:'百货轻奢'},
+            {merCateId:7,isfixed:0,name:'乳饮酒速食'},
+            {merCateId:8,isfixed:0,name:'休闲零食'},
+            {merCateId:9,isfixed:0,name:'水果生鲜'},
+            {merCateId:10,isfixed:1,name:'环球物料'}
         ],
         //当前商品类型
         currentMerCate:{},
@@ -334,10 +339,10 @@ export default {
         ],
         //四方阁
         boxList:[
-            {boxId:1,name:'会员专享',icon:require('../../common/img/c3aedbd5e5c3.png')},
-            {boxId:2,name:'每日十荐',icon:require('../../common/img/dc8baee79b2.png')},
-            {boxId:3,name:'环球工厂',icon:require('../../common/img/22f7b1dd1963b.png')},
-            {boxId:4,name:'分类',icon:require('../../common/img/28a6e2e55a185.png')},
+            {boxId:1,name:'会员专享',icon:require('../../common/img/c3aedbd5e5c3.png'),link:''},
+            {boxId:2,name:'每日十荐',icon:require('../../common/img/dc8baee79b2.png'),link:''},
+            {boxId:3,name:'环球工厂',icon:require('../../common/img/22f7b1dd1963b.png'),link:''},
+            {boxId:4,name:'分类',icon:require('../../common/img/28a6e2e55a185.png'),link:''},
             ],
         //广告
         ad:{
@@ -408,8 +413,23 @@ export default {
     created(){
 //初始化
 this.currentMerCate=this.merCateList[0];
+
+
 },
     methods:{
+        loadMore() {
+  this.loading = true;
+
+  setTimeout(() => {
+      let sslikeMerList=[];
+      for (let i = 1; i <= 10; i++) {
+          sslikeMerList.push(this.likeMerList[0]);
+    }
+      sessionStorage.setItem("likeMerList",JSON.stringify(sslikeMerList));
+      this.likeMerList=this.likeMerList.concat(JSON.parse(sessionStorage.getItem("likeMerList")))
+    this.loading = false;
+  }, 10);
+},
     //点击导航栏
     clickNavbar(merCate){
     console.log(merCate)
