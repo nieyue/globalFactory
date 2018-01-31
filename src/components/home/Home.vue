@@ -14,17 +14,17 @@
     <!-- 导航栏 -->
     <div class="swiper-container navbar-wrap navbarswiper">
         <div class="swiper-wrapper navbar">
-            <div class="swiper-slide navbar-item" v-for="merCate in merCateList" :key="merCate.merCateId" :class="{'navbar-item-active':merCate==currentMerCate}">
+            <div class="swiper-slide navbar-item" @click="selectMerCate(merCate)" v-for="merCate in merCateList" :key="merCate.merCateId" :class="{'navbar-item-active':merCate==currentMerCate}">
                 {{merCate.name}}
             </div>
         </div>
     </div>
     <!-- 导航栏end -->
     <!-- 封面轮播图 -->
-    <div class="swiper-container index-swipe coverswiper">
-        <div class="swiper-wrapper navbar">
-            <div class="swiper-slide slide" :key="homeImg.order" v-for="homeImg in homeImgList">
-                <img :src="homeImg.imgAddress" class="home-img"/>
+    <div class="swiper-container common-swipe-wrap coverswiper">
+        <div class="swiper-wrapper common-swipe">
+            <div class="swiper-slide common-swipe-item" :key="homeImg.order" v-for="homeImg in homeImgList">
+                <img :src="homeImg.imgAddress" class="common-swipe-item-img"/>
             </div>
         </div>
             <div class="swiper-pagination swiper-pagination-white"></div>
@@ -47,14 +47,12 @@
 <!-- 通知 end-->
  <!-- 四方阁-->
  <div>
-        <div class="box" :key="box.boxId"  v-for="box in boxList">
-            <div class="box-item">
-                <a :href="box.link">
-                    <img class="box-item-img" :src="box.icon" alt="">
-                    <span class="box-item-text" v-text="box.name">
+        <div class="fourbox" :key="box.boxId"  v-for="box in boxList">
+                <router-link :to="{path:box.link}" class="fourbox-item" style="position:relative;top:0;left:0;">
+                    <img class="fourbox-item-img" :src="box.icon" alt="">
+                    <span class="fourbox-item-text" style="position:absolute;top:70%;left:0;" v-text="box.name">
                     </span>
-                </a>
-            </div>
+                </router-link>
         </div>
  </div>
  <!-- 四方阁-->
@@ -139,7 +137,7 @@
   <div class="division"></div>
  <!-- 超值热卖-->
      <div>
-         <div class="hot-title" >超值热卖</div>
+         <div class="common-title-single" >超值热卖</div>
          <a class="hot" :key="hot.hotId"  v-for="hot in hotList" v-bind:href="hot.link">
              <img class="hot-img" v-bind:src="hot.imgAddress" alt="">
              <span class="hot-content">
@@ -155,7 +153,7 @@
   <div class="division"></div>
  <!-- 猜你喜欢-->
      <div>
-         <div class="hot-title" >猜你喜欢</div>
+         <div class="common-title-single" >猜你喜欢</div>
          <div class="mer2-wrap"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
@@ -342,7 +340,7 @@ export default {
             {boxId:1,name:'会员专享',icon:require('../../common/img/c3aedbd5e5c3.png'),link:''},
             {boxId:2,name:'每日十荐',icon:require('../../common/img/dc8baee79b2.png'),link:''},
             {boxId:3,name:'环球工厂',icon:require('../../common/img/22f7b1dd1963b.png'),link:''},
-            {boxId:4,name:'分类',icon:require('../../common/img/28a6e2e55a185.png'),link:''},
+            {boxId:4,name:'分类',icon:require('../../common/img/28a6e2e55a185.png'),link:'/merCate'},
             ],
         //广告
         ad:{
@@ -411,29 +409,39 @@ export default {
      }
     },
     created(){
-//初始化
-this.currentMerCate=this.merCateList[0];
+    //初始化
+    this.currentMerCate=this.merCateList[0];
 
 
-},
-    methods:{
-        loadMore() {
-  this.loading = true;
-
-  setTimeout(() => {
-      let sslikeMerList=[];
-      for (let i = 1; i <= 10; i++) {
-          sslikeMerList.push(this.likeMerList[0]);
-    }
-      sessionStorage.setItem("likeMerList",JSON.stringify(sslikeMerList));
-      this.likeMerList=this.likeMerList.concat(JSON.parse(sessionStorage.getItem("likeMerList")))
-    this.loading = false;
-  }, 10);
-},
-    //点击导航栏
-    clickNavbar(merCate){
-    console.log(merCate)
     },
+    methods:{
+    //加载更多
+    loadMore() {
+    this.loading = true;
+
+    setTimeout(() => {
+        let sslikeMerList=[];
+        for (let i = 1; i <= 10; i++) {
+            sslikeMerList.push(this.likeMerList[0]);
+        }
+        sessionStorage.setItem("likeMerList",JSON.stringify(sslikeMerList));
+        this.likeMerList=this.likeMerList.concat(JSON.parse(sessionStorage.getItem("likeMerList")))
+        this.loading = false;
+    }, 10);
+    },
+    //选择导航
+    selectMerCate(merCate){
+    console.log(merCate)
+    if(merCate.isfixed==1){
+    //固定的
+    console.log(1111)
+    }else if(merCate.isfixed==0){
+    //子类型
+    console.log(0) 
+    this.$router.push('/subMerCate/'+merCate.merCateId);
+    }
+        },
+
     //点击今日爆款、下期预告
     getExplosion(explosionTitleActive){
         this.explosionTitleActive=explosionTitleActive;

@@ -5,6 +5,8 @@ import Home from '@/components/home/Home'
 import Boutique from '@/components/boutique/Boutique'
 import Cart from '@/components//cart/Cart'
 import User from '@/components/user/User'
+import MerCate from '@/components/mer/MerCate'
+import SubMerCate from '@/components/mer/SubMerCate'
 import Mer from '@/components/mer/Mer'
 
 Vue.use(Router)
@@ -42,12 +44,24 @@ export default new Router({
           name: 'User',
           component: User
           
-        },{
+        },
+        {
           path: 'mer',
           name: 'Mer',
           component: Mer
           
         }]
+    },
+    {
+      path: '/merCate',
+      name: 'MerCate',
+      component: MerCate
+      
+    },
+    {
+      path: '/subMerCate/:merCateId',
+      name: 'SubMerCate',
+      component: SubMerCate
       
     }
   ]

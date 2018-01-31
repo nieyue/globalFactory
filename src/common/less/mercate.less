@@ -1,0 +1,76 @@
+/**
+**商品分类
+*/
+//顶部
+.mercate-header{
+    background-color: #00a2e9;
+    height: 50px;
+    //外框
+    .mercate-header-wrap{
+        display: inline-block;
+        background-color: #fff;
+        height: 30px;
+        text-align:center;
+        margin:10px;
+        width: ~'calc(100% - 20px)';
+        text-decoration: none;
+        color:#000;
+        font-size:0.9rem;
+        //图片
+        .mercate-header-search-img{
+            margin-top:10px;
+            height: 10px;
+            width:10px;  
+
+        }
+        //文字
+        .mercate-header-search-text{
+            margin-top:10px;
+            height: 10px;
+        }
+        
+    }
+}
+/**
+**左边导航栏
+*/
+.mercate-leftbar-wrap{
+    position: absolute;
+    left:0;
+    top:50px;
+    width:21.3%;
+    height: ~'calc(100vh - 50px)';
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
+    color:#858585;
+    z-index:9;
+    .mercate-leftbar{
+        display: inline-block;
+        word-break:keep-all;
+        .mercate-leftbar-item{
+            display: inline-block;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            text-align: center;
+        }
+        .mercate-leftbar-item-active{
+            color:#000;
+            opacity:1;
+            background-color:#fff;
+        }  
+        
+    }
+}
+/**
+**右边内容
+*/
+.mercate-rightbody-wrap{
+    background-color: #fff;
+    position:absolute;
+    left:21.3%;
+    top:50px;
+    width:78.7%;
+    height: ~'calc(100vh - 50px)';
+    overflow: auto;
+}
