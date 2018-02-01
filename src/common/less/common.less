@@ -29,11 +29,11 @@ body,html{
     left:0;
     top:0;
 }
-image[lazy=loading] {
-    width: 40px;
-    height: 300px;
-    margin: auto;
-  }
+// image[lazy=loading] {
+//     width: 40px;
+//     height: 300px;
+//     margin: auto;
+//   }
 /**
 **自定义轮播图的按钮
 */
@@ -245,6 +245,14 @@ width:100%;
     margin-bottom:60px;
 }
 /**
+**固定顶部
+*/
+.fixedtop{
+    position:fixed !important;
+    left:0;
+    top:0;
+}
+/**
 **四方阁
 */
 .fourbox{
@@ -314,6 +322,18 @@ width:100%;
     }
 }
 /**
+**单品封面
+*/
+.common-single-wrap{
+    width:100%;
+    .common-single{
+        width:100%;
+        .common-single-img{
+            width:100%;
+        }
+    }
+}
+/**
 **一行多个商品
 */
 .mer-wrap{
@@ -324,12 +344,13 @@ width:100%;
         width:40%;
         margin:1%;
         font-size: 0.8rem;
+        //商品详情
         .mer-item{
             display: inline-block;
             border:0px solid #ececec;
             .mer-item-img{
                 width:100%;
-                
+                display: inline-block;
             }
             .mer-item-title{
                 padding:3%;
@@ -344,12 +365,31 @@ width:100%;
                 margin-bottom:3%;
                 padding:3%;
                 font-weight:bolder;
+                font-size:0.8rem;
+                //原始价格
                 .mer-item-oldprice{
                     color:#ccc;
                     text-decoration:line-through;
+                    display: inline-block;
+                    font-size :0.6rem;
                 }
+                //正常价格
                 .mer-item-price{
                     color:red;
+                    display: inline-block;
+                }
+                //会员价格字体
+                .mer-item-memberfont{
+                    color:#C59F51;
+                    display: inline-block;
+                    font-size:0.6rem;
+                    background-color: #000;
+                }
+                //会员价格
+                .mer-item-memberprice{
+                    color:#C59F51;
+                    display: inline-block;
+                    margin-top:0.2rem;
                 }
             }
         }
@@ -359,8 +399,7 @@ width:100%;
 **一行两个商品
 */
 .mer2-wrap{
-    width:98%;
-    padding:0 1%;
+    width:100%;
     .mer2-item-wrap{
         display: inline-block;
         width:48%;
@@ -390,6 +429,14 @@ width:100%;
                 }
                 .mer2-item-price{
                 }
+                .mer2-item-oldprice2{
+                    color:#ccc;
+                    text-decoration:line-through;
+                    font-size:0.8rem;
+                }
+                .mer2-item-price2{
+                    color:red;
+                }
             }
             .mer2-item-tag-wrap{
                 padding:3%;
@@ -404,5 +451,90 @@ width:100%;
                 }
             }
         }
+    }
+}
+/**
+**一行三个商品
+*/
+.mer3-wrap{
+    width:98%;
+    padding:0 1%;
+    text-align:center;
+    .mer3-item-wrap{
+        display: inline-block;
+        width:31%;
+        margin:1%;
+        font-size: 1rem;
+        position: relative;
+        left:0;
+        top:0;
+        //固定图标
+        .mer3-icon{
+            position: absolute;
+            left:0;
+            top:0;
+            width:1.72rem;
+        }
+        .mer3-item{
+            display: inline-block;
+            text-align:left;
+            .mer3-item-img{
+            width:100%;
+
+            }
+            .mer3-item-title{
+                padding:3%;
+                overflow:hidden; 
+                text-overflow:ellipsis;
+                display:-webkit-box; 
+                -webkit-box-orient:vertical;
+                -webkit-line-clamp:2; 
+                color:#000;
+                text-decoration: none;
+            }
+            .mer3-item-pricewrap{
+                padding:3%;
+                font-weight:bolder;
+                .mer3-item-oldprice{
+                    color:#ccc;
+                    text-decoration:line-through;
+                    font-size: 0.8rem;
+                }
+                .mer3-item-price{
+                    font-size: 1rem;
+                    color:red;
+                }
+            }
+        }
+    }
+}
+/**
+**查看全部
+*/
+.common-product-all-wrap{
+    height:50px;
+    width:50px;
+    background-color: #ececec;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 0.6rem;
+    text-decoration: none;
+    color:#000;
+    display: inline-block;
+    .common-product-all-top{
+        width:90%;
+        height:30px;
+        line-height: 40px;
+    }
+    .common-product-all-line{
+        width:80%;
+        height: 3px;
+        background-color: #999;
+        margin:auto;
+    }
+    .common-product-all-bottom{
+        width:90%;
+        height:17px;
+        line-height: 17px;
     }
 }

@@ -1,3 +1,4 @@
+<!-- 商品类型 -->
 <template>
   <div class="wrap">
     <!-- 搜索框 -->

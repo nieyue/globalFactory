@@ -435,6 +435,7 @@ export default {
     if(merCate.isfixed==1){
     //固定的
     console.log(1111)
+        this.$router.push('/merCateDetails/'+merCate.merCateId);
     }else if(merCate.isfixed==0){
     //子类型
     console.log(0) 
